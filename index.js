@@ -1,3 +1,4 @@
+const express = require("express");
 require("dotenv").config();
 const { DisTube } = require("distube");
 const Discord = require("discord.js");
@@ -153,3 +154,17 @@ client.distube
   .on("finish", (queue) => queue.textChannel.send("GG!"));
 
 client.login(process.env.TOKEN);
+
+// server settings
+const app = express();
+
+app.get("/", (req, res) => {
+  console.log(Date.now() + " Ping Received");
+  res.sendStatus(200);
+});
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log("Server is running on port " + PORT);
+});
