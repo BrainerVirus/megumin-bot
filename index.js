@@ -95,10 +95,9 @@ client.distube
       embeds: [
         new EmbedBuilder()
           .setColor(0x0099ff)
-          .setTitle(`Reproducendo - \`${song.name}\``)
           .setURL(song.url)
           .setAuthor({
-            name: song.name,
+            name: `${config.emoji.play}Reproducendo - \`${song.name}\``,
             iconURL: song.thumbnail,
             url: song.url,
           })
