@@ -1,5 +1,9 @@
 {
   "name": "megumin-bot",
+  "engines": {
+    "node": "18.8.0",
+    "npm": "8.18.0"
+  },
   "version": "1.0.0",
   "description": "this is a music bot for discord",
   "main": "index.js",
