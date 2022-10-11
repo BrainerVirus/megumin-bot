@@ -89,7 +89,7 @@ const status = (queue) =>
   }\` | Auto Reproducir: \`${queue.autoplay ? "On" : "Off"}\``;
 client.distube
   .on("playSong", (queue, song) => {
-    console.log("this is data in song: ", song);
+    // console.log("this is data in song: ", song);
     queue.textChannel.send({
       embeds: [
         new EmbedBuilder()
