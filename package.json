@@ -1,6 +1,10 @@
 {
   "name": "megumin-bot",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.15.0",
+    "npm": "9.6.0"
+  },
   "description": "this is a music bot for discord",
   "main": "index.js",
   "scripts": {
