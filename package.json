@@ -11,7 +11,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "upgrade": "npm-upgrade"
+    "upgrade": "npm-upgrade",
+    "commit": "git-cz"
   },
   "keywords": [],
   "author": "BrainerVirus",
@@ -33,6 +34,12 @@
     "npm-upgrade": "^3.1.0"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "nodemon": "^2.0.21"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
