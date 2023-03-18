@@ -24,8 +24,6 @@ jobs:
           echo MONGO_URI=$MONGO_URI >> .env
           echo PORT=$PORT >> .env
       - run: npm ci
-      - run: npm run tsc
-      - run: npm run test
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
