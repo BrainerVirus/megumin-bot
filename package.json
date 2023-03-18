@@ -8,8 +8,8 @@
   "description": "this is a music bot for discord",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "upgrade": "npm-upgrade",
     "commit": "git-cz",

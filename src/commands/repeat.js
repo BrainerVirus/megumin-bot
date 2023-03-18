@@ -23,7 +23,7 @@ module.exports = {
     mode = queue.setRepeatMode(mode);
     mode = mode ? (mode === 2 ? "Repetir cola" : "Repetir canción") : "Off";
     message.channel.send(
-      `${client.emotes.repeat} | Seleccionar modo de repetición \`${mode}\``
+      `${client.emotes.repeat} | Selecciona un reproducción \`${mode}\``
     );
   },
 };

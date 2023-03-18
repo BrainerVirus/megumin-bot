@@ -1,5 +1,7 @@
 module.exports = {
-  name: "shuffle",
+  name: "stop",
+  aliases: ["stp"],
+  aliases: ["disconnect", "leave"],
   inVoiceChannel: true,
   run: async (client, message) => {
     const queue = client.distube.getQueue(message);
@@ -7,7 +9,9 @@ module.exports = {
       return message.channel.send(
         `${client.emotes.error} | Baka! No hay nada reproduciendose ahora mismo...`
       );
-    queue.shuffle();
-    message.channel.send("hehehe, he mezclado la cola...");
+    queue.stop();
+    message.channel.send(
+      `${client.emotes.success} | Explosion! todo ha terminado...`
+    );
   },
 };

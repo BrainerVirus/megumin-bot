@@ -10,7 +10,7 @@ module.exports = {
     const q = queue.songs
       .map(
         (song, i) =>
-          `${i === 0 ? "Repoduciendose:" : `${i}.`} ${song.name} - \`${
+          `${i === 0 ? "Hehehe repoduciendose:" : `${i}.`} ${song.name} - \`${
             song.formattedDuration
           }\``
       )

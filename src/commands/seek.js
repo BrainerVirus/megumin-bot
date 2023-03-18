@@ -1,5 +1,6 @@
 module.exports = {
   name: "seek",
+  aliases: ["sk"],
   inVoiceChannel: true,
   run: async (client, message, args) => {
     const queue = client.distube.getQueue(message);

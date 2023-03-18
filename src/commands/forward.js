@@ -1,5 +1,6 @@
 module.exports = {
   name: "forward",
+  aliases: ["frd"],
   inVoiceChannel: true,
   run: async (client, message, args) => {
     const queue = client.distube.getQueue(message);

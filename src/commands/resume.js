@@ -1,5 +1,6 @@
 module.exports = {
-  name: "previous",
+  name: "resume",
+  aliases: ["resume", "unpause, rme"],
   inVoiceChannel: true,
   run: async (client, message) => {
     const queue = client.distube.getQueue(message);
@@ -7,9 +8,11 @@ module.exports = {
       return message.channel.send(
         `${client.emotes.error} | Baka! No hay nada reproduciendose ahora mismo...`
       );
-    const song = queue.previous();
-    message.channel.send(
-      `${client.emotes.success} | Now playing:\n${song.name}`
-    );
+    if (queue.paused) {
+      queue.resume();
+      message.channel.send("Hehehe, ya volví a reproducir la canción...");
+    } else {
+      message.channel.send("Explosion! la canción no ha sido pausada...");
+    }
   },
 };

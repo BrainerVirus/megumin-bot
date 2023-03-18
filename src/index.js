@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 require("dotenv").config();
 const { DisTube } = require("distube");
 const Discord = require("discord.js");
@@ -11,12 +12,12 @@ const client = new Discord.Client({
   ],
 });
 const fs = require("fs");
-const config = require("./config.json");
+const config = require("../config.json");
 const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 
-client.config = require("./config.json");
+client.config = require("../config.json");
 client.distube = new DisTube(client, {
   leaveOnStop: false,
   leaveOnFinish: true,
@@ -35,7 +36,7 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.emotes = config.emoji;
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir(path.join(__dirname, "commands"), (err, files) => {
   if (err)
     return console.log("Kono Baka! el comando ingresado no es válido...");
   const jsFiles = files.filter((f) => f.split(".").pop() === "js");
@@ -158,9 +159,12 @@ client.login(process.env.TOKEN);
 // server settings
 const app = express();
 
+app.use(express.static(path.join(__dirname, "..", "public")));
+app.use(express.static(path.join(__dirname, "..", "assets")));
+
 app.get("/", (req, res) => {
   console.log(Date.now() + " Ping Received");
-  res.sendStatus(200);
+  res.sendFile(path.join(__dirname, "..", "views", "index.html"));
 });
 
 const PORT = process.env.PORT || 8080;

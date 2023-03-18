@@ -2,7 +2,7 @@ const { Constants } = require("discord.js");
 
 module.exports = {
   name: "join",
-  aliases: ["move"],
+  aliases: ["jn"],
   run: async (client, message, args) => {
     let voiceChannel = message.member.voice.channel;
     if (args[0]) {

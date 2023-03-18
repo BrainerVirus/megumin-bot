@@ -1,5 +1,6 @@
 module.exports = {
-  name: "skip",
+  name: "autoplay",
+  aliases: ["ap"],
   inVoiceChannel: true,
   run: async (client, message) => {
     const queue = client.distube.getQueue(message);
@@ -7,13 +8,11 @@ module.exports = {
       return message.channel.send(
         `${client.emotes.error} | Baka! No hay nada reproduciendose ahora mismo...`
       );
-    try {
-      const song = await queue.skip();
-      message.channel.send(
-        `${client.emotes.success} | Saltada! ahora reproduciendo:\n${song.name}`
-      );
-    } catch (e) {
-      message.channel.send(`${client.emotes.error} | ${e}`);
-    }
+    const autoplay = queue.toggleAutoplay();
+    message.channel.send(
+      `${client.emotes.success} | Auto reproducción: \`${
+        autoplay ? "On" : "Off"
+      }\``
+    );
   },
 };

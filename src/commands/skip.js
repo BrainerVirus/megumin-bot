@@ -1,6 +1,6 @@
 module.exports = {
-  name: "pause",
-  aliases: ["pause", "hold"],
+  name: "skip",
+  aliases: ["skp"],
   inVoiceChannel: true,
   run: async (client, message) => {
     const queue = client.distube.getQueue(message);
@@ -8,13 +8,13 @@ module.exports = {
       return message.channel.send(
         `${client.emotes.error} | Baka! No hay nada reproduciendose ahora mismo...`
       );
-    if (queue.paused) {
-      queue.resume();
-      return message.channel.send(
-        "Hehehe, ya volví a reproducir la canción...)"
+    try {
+      const song = await queue.skip();
+      message.channel.send(
+        `${client.emotes.success} | Saltada! ahora reproduciendo:\n${song.name}`
       );
+    } catch (e) {
+      message.channel.send(`${client.emotes.error} | ${e}`);
     }
-    queue.pause();
-    message.channel.send("Hehehe, ya pausé la canción...");
   },
 };

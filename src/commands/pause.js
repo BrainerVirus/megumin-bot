@@ -1,5 +1,6 @@
 module.exports = {
-  name: "autoplay",
+  name: "pause",
+  aliases: ["pse", "hold"],
   inVoiceChannel: true,
   run: async (client, message) => {
     const queue = client.distube.getQueue(message);
@@ -7,11 +8,13 @@ module.exports = {
       return message.channel.send(
         `${client.emotes.error} | Baka! No hay nada reproduciendose ahora mismo...`
       );
-    const autoplay = queue.toggleAutoplay();
-    message.channel.send(
-      `${client.emotes.success} | Auto reproducción: \`${
-        autoplay ? "On" : "Off"
-      }\``
-    );
+    if (queue.paused) {
+      queue.resume();
+      return message.channel.send(
+        "Hehehe, ya volví a reproducir la canción...)"
+      );
+    }
+    queue.pause();
+    message.channel.send("Hehehe, ya pausé la canción...");
   },
 };
