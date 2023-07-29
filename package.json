@@ -2,15 +2,13 @@
   "name": "@brainervirus.dev/megumin-bot",
   "version": "0.0.0-development",
   "engines": {
-    "node": "18.15.0",
-    "npm": "9.5.0"
+    "node": "18.17.0"
   },
   "description": "this is a music bot for discord",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "upgrade": "npm-upgrade",
     "commit": "git-cz",
     "semantic-release": "semantic-release"
@@ -19,25 +17,23 @@
   "author": "BrainerVirus",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.9.0",
-    "@discordjs/voice": "^0.16.0",
-    "@distube/soundcloud": "^1.3.2",
-    "@distube/spotify": "^1.5.1",
-    "@distube/yt-dlp": "^1.1.3",
-    "@distube/ytdl-core": "^4.11.10",
-    "discord.js": "^14.11.0",
-    "distube": "^4.0.4",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^5.1.0",
-    "libsodium-wrappers": "^0.7.11",
-    "npm-upgrade": "^3.1.0"
+    "@discordjs/opus": "0.9.0",
+    "@discordjs/voice": "0.16.0",
+    "@distube/soundcloud": "1.3.3",
+    "@distube/spotify": "1.5.1",
+    "@distube/yt-dlp": "1.1.3",
+    "@distube/ytdl-core": "4.11.17",
+    "discord.js": "14.11.0",
+    "distube": "4.0.6",
+    "dotenv": "16.3.1",
+    "express": "4.18.2",
+    "libsodium-wrappers": "0.7.11",
+    "npm-upgrade": "3.1.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
-    "nodemon": "^2.0.22",
-    "semantic-release": "^21.0.6"
+    "nodemon": "^3.0.1",
+    "semantic-release": "^21.0.7"
   },
   "config": {
     "commitizen": {
