@@ -11,7 +11,7 @@ module.exports = {
           .setDescription(
             client.commands.map((cmd) => `\`${cmd.name}\``).join(", ")
           )
-          .setColor("BLURPLE"),
+          .setColor(0x0099ff),
       ],
     });
   },
