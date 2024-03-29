@@ -80,19 +80,21 @@ client.on("messageCreate", async (message) => {
   }
 });
 const { EmbedBuilder } = require("discord.js");
-const status = (queue) =>
-  `Volumen: \`${queue.volume}%\` | Filtro: \`${
+const status = (queue) => {
+  let repeatMode = "";
+  if (queue.repeatMode) {
+    repeatMode = queue.repeatMode === 2 ? "Todo" : "Esta canción";
+  } else {
+    repeatMode = "Off";
+  }
+  return `Volumen: \`${queue.volume}%\` | Filtro: \`${
     queue.filters.names.join(", ") || "Off"
-  }\` | Loop: \`${
-    queue.repeatMode
-      ? queue.repeatMode === 2
-        ? "Todo"
-        : "Esta canción"
-      : "Off"
-  }\` | Auto Reproducir: \`${queue.autoplay ? "On" : "Off"}\``;
+  }\` | Loop: \`${repeatMode}\` | Auto Reproducir: \`${
+    queue.autoplay ? "On" : "Off"
+  }\``;
+};
 client.distube
   .on("playSong", (queue, song) => {
-    // console.log("this is data in song: ", song);
     queue.textChannel.send({
       embeds: [
         new EmbedBuilder()
